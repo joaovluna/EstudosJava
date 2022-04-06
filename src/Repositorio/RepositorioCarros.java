@@ -55,10 +55,12 @@ public class RepositorioCarros implements CRUDCarros {
     }
     public void delete(String marca, String modelo){
         FactoryCarros factory = new FactoryCarros();
+
         int id=1;
         if(marca.equals("Ferrari")){
             id = 2;
         }
+
         Carro c = factory.getClass(id);
         boolean flag = false;
         if(carros.isEmpty()){
