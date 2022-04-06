@@ -1,9 +1,7 @@
 package Carros;
 
-import java.util.*;
 
 public class Ferrari extends Carro{
-
 
 
     public Ferrari(){

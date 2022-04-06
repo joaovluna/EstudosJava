@@ -16,10 +16,11 @@ public class Main {
         preenchendoRepositorio(fiat, ferrari);
 
         int comando = 0;
-        String marca;
+
         Scanner scan = new Scanner(System.in);
+
+        String marca;
         String modelo;
-        boolean hibrido;
         int anoLancamento;
         double valor;
 
@@ -29,7 +30,11 @@ public class Main {
             System.out.println("-----------------------------------");
             System.out.println(" 1 - Fiat \n 2 - Ferrari \n 3 - Sair");
             comando = scan.nextInt();
-            FactoryCarros factory = new FactoryCarros(); //factory de carros
+
+            FactoryCarros factory;//factory de carros
+
+            factory = FactoryCarros.getInstance(); //singleton
+
             switch(comando) {
                 case 1 -> {
 
@@ -47,6 +52,7 @@ public class Main {
                     int codFiat = scan.nextInt();
 
                     System.out.println("\n");
+
                     fiatCRUD(fiat, scan, carro, codFiat);
 
                 }
@@ -64,6 +70,7 @@ public class Main {
 
                     int codFerrari = scan.nextInt();
                     System.out.println("\n");
+
                     ferrariCRUD(ferrari,scan,carro,codFerrari);
                 }
                 case 3 -> System.out.println("Saindo...");
@@ -223,9 +230,9 @@ public class Main {
                 String antigo = scan.next();
 
                 System.out.printf("%1s%10s%15s%20s\n","Marca","Modelo","Valor","Ano Lançamento");
-                ferrari.read("Ferrari",antigo);
-                System.out.println();
-
+                ferrari.read("Ferrari",antigo); // retornar se existe ou nao, ferrari.searchCarro("Ferrari",antigo)
+                System.out.println();                 // quando digita um carro que nao existe ele da sequencia e so avisa depois
+                //nao dar sequencia se carro nao existir
                 System.out.println("Informe as novas informações atualizadas");
                 System.out.print("Modelo: ");
                 modelo = scan.next();

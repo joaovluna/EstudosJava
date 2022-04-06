@@ -1,15 +1,16 @@
 package Repositorio;
-
 import Agencia.CRUDCarros;
+
 import Carros.Carro;
 import Factory.FactoryCarros;
+import Observer.Sujeito;
 
 import java.util.*;
 import java.util.Locale;
 
-public class RepositorioCarros implements CRUDCarros {
+public class RepositorioCarros /*implements CRUDCarros*/ extends Sujeito {
 
-    protected List<Carro> carros;
+    protected Collection<Carro> carros;
 
     public RepositorioCarros(){
         carros = new ArrayList<>();
@@ -48,15 +49,18 @@ public class RepositorioCarros implements CRUDCarros {
             antigo.setAnoLancamento(novo.getAnoLancamento());
             antigo.setValor(novo.getValor());
             System.out.println("Carro atualizado");
+
+            notificar(); // vai notificar os sujeitos
+
         }else{
             System.out.println("Carro não existe, impossível atualizar");
         }
 
     }
     public void delete(String marca, String modelo){
-        FactoryCarros factory = new FactoryCarros();
+        FactoryCarros factory = FactoryCarros.getInstance();
 
-        int id=1;
+        int id = 1; //Fiat
         if(marca.equals("Ferrari")){
             id = 2;
         }
@@ -74,7 +78,7 @@ public class RepositorioCarros implements CRUDCarros {
                 }
             }
         }
-        if(flag){
+        if(flag && !carros.isEmpty()){
             carros.remove(c);
             System.out.println("----------------------------DELETADO------------------------------------");
             System.out.printf("%1s%10s%15s%20s\n","Marca","Modelo","Valor","Ano Lançamento");

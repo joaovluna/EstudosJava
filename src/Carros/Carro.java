@@ -1,10 +1,9 @@
 package Carros;
-import Agencia.CRUDCarros;
 
-import java.util.List;
-import java.util.Locale;
 
-public abstract class Carro {
+import Observer.Sujeito;
+
+public abstract class Carro  {
 
     protected String marca;
     private String modelo;
@@ -13,11 +12,13 @@ public abstract class Carro {
 
     public abstract double getPrecoAVista();
 
-
-    protected void setMarca(String marca){ this.marca = marca;}
     public void setValor(double valor){
         this.valor = valor;
+
     }
+
+    protected void setMarca(String marca){ this.marca = marca;}
+
     public void setAnoLancamento(int anoLancamento) {
         this.anoLancamento = anoLancamento;
     }

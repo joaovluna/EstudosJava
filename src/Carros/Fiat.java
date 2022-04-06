@@ -9,7 +9,9 @@ public class Fiat extends Carro {
 
     @Override
     public double getPrecoAVista() {
+
         return getValor()*0.5;
+
     }
 
 
