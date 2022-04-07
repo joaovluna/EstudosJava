@@ -7,15 +7,15 @@ import java.util.Iterator;
 public class Sujeito {
     Collection observers = new ArrayList();
 
-    public void add(Observador o){
+    public void addObservador(Observador o){
         observers.add(o);
     }
 
-    public void remove(Observador o){
+    public void removeObservador(Observador o){
         observers.remove(o);
     }
 
-    public void notificar(){
+    public void notificarObservador(){
         Iterator it = observers.iterator();
         while(it.hasNext()){
             Observador o = (Observador)it.next();

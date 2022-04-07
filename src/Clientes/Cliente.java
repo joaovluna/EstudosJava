@@ -3,7 +3,7 @@ package Clientes;
 public class Cliente extends Pessoa{
 
     public String id;
-    //boolean premium ?
+
     public Cliente(){
 
     }

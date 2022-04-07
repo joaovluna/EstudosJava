@@ -3,7 +3,7 @@ package Carros;
 
 import Observer.Sujeito;
 
-public abstract class Carro  {
+public abstract class Carro extends Sujeito {
 
     protected String marca;
     private String modelo;
@@ -26,6 +26,7 @@ public abstract class Carro  {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
+        notificarObservador(); // vai notificar os sujeitos
     }
 
     public int getAnoLancamento() {
