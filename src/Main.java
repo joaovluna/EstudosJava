@@ -14,8 +14,9 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        RepositorioClientes repositorioClientes = new RepositorioClientes(); //ja cria alguns clientes
-        RepositorioClientes observador = new RepositorioClientes(); //criando observador
+        RepositorioClientes repositorioClientes = new RepositorioClientes(); //ja cria alguns clientes, observador certo
+
+        RepositorioClientes observador = new RepositorioClientes(); //observador errado
 
         RepositorioCarros fiat = new RepositorioCarros();
         RepositorioCarros ferrari = new RepositorioCarros();
@@ -32,7 +33,7 @@ public class Main {
 
             switch (inicio) {
 
-                case 1 -> cadastroCarro(scan, fiat, ferrari, observador);
+                case 1 -> cadastroCarro(scan, fiat, ferrari, observador, repositorioClientes);
 
                 case 2 -> cadastroCliente(scan, repositorioClientes);
 
@@ -89,6 +90,7 @@ public class Main {
                 cliente.setEmail(email);
 
                 repositorioClientes.create(cliente);
+
                 System.out.println("Cliente cadastrado com sucesso");
             }
 
@@ -151,7 +153,7 @@ public class Main {
     }
 
 
-    private static void cadastroCarro(Scanner scan, RepositorioCarros fiat, RepositorioCarros ferrari, RepositorioClientes observador) {
+    private static void cadastroCarro(Scanner scan, RepositorioCarros fiat, RepositorioCarros ferrari, RepositorioClientes observador, RepositorioClientes repositorioCliente) {
         int comandoCarro = 0;
 
         while (comandoCarro != 3) {
@@ -170,7 +172,7 @@ public class Main {
                 case 1 -> {
 
                     Carro carro = factory.getClass(comandoCarro);
-                    carro.addObservador(observador); //ADICIONANDO OBSERVADOR
+                    carro.addObservador(repositorioCliente); //ADICIONANDO OBSERVADOR
                     System.out.println("---------------------------------");
                     System.out.println("--------------FIAT---------------");
                     System.out.println("---------------------------------");
@@ -184,7 +186,7 @@ public class Main {
 
                     System.out.println("\n");
 
-                    fiatCRUD(fiat, scan, carro, codFiat);
+                    fiatCRUD(fiat, scan, carro, codFiat, repositorioCliente);
 
                 }
                 case 2 -> {
@@ -215,7 +217,7 @@ public class Main {
         }
     }
 
-    private static void fiatCRUD(RepositorioCarros fiat, Scanner scan, Carro carro, int codFiat) {
+    private static void fiatCRUD(RepositorioCarros fiat, Scanner scan, Carro carro, int codFiat, RepositorioClientes repositorioCliente) {
         String modelo;
         double valor;
         int anoLancamento;
@@ -234,7 +236,9 @@ public class Main {
                 carro.setAnoLancamento(anoLancamento);
                 carro.setValor(valor);
                 fiat.create(carro);
+
                 System.out.println("Carro cadastrado com sucesso");
+                repositorioCliente.seeAll();
 
             }
             case 2 -> {

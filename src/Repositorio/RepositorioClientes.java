@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.Locale;
 
 public class RepositorioClientes implements Observador {
+
     Collection<Cliente> clientes;
 
     public RepositorioClientes() {
@@ -150,13 +151,14 @@ public class RepositorioClientes implements Observador {
     private void notificarClientes(Carro acao) {
 
         System.out.println("-------------------------------NOTIFICA--------------------------------------");
-
+        System.out.println(clientes.size());
         clientes.forEach(cliente -> { // pq nao vem os clientes que sao cadastrados na linha de comando? so os que estao no construtor que vem
             System.out.println("Enviando para: "+ cliente.getEmail() +
                     " ->> Olá, venha conferir o novo " + acao.getModelo().toUpperCase(Locale.ROOT) +
                     " da " + acao.getMarca().toUpperCase(Locale.ROOT) + " que acabou de chegar");
+
         });
-        System.out.println("\n\n");
+        System.out.println("\n");
 
 //        System.out.println(" Olá, venha conferir o novo "+acao.getModelo().toUpperCase(Locale.ROOT)+" da "+ acao.getMarca().toUpperCase(Locale.ROOT)+" que chegou ");
 

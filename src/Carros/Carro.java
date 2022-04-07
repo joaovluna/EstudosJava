@@ -26,7 +26,7 @@ public abstract class Carro extends Sujeito {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-        notificarObservador(); // vai notificar os sujeitos
+        notificarObservador(); // vai notificar os observadores
     }
 
     public int getAnoLancamento() {
