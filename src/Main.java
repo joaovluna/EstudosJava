@@ -14,14 +14,13 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        RepositorioClientes repositorioClientes = new RepositorioClientes();
+        RepositorioClientes repositorioClientes = new RepositorioClientes(); //ja cria alguns clientes
         RepositorioClientes observador = new RepositorioClientes(); //criando observador
 
         RepositorioCarros fiat = new RepositorioCarros();
         RepositorioCarros ferrari = new RepositorioCarros();
 
-        preenchendoRepositorioCarros(fiat, ferrari);
-        preenchendoRepositorioClientes(repositorioClientes);
+        preenchendoRepositorioCarros(fiat, ferrari); //criando alguns carros
 
         int inicio = 0;
         while (inicio != 3) {
@@ -401,8 +400,5 @@ public class Main {
         ferrari.create(c4);
     }
 
-    private static void preenchendoRepositorioClientes(RepositorioClientes repositorioClientes) {
-
-    }
 
 }

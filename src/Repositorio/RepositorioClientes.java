@@ -156,16 +156,7 @@ public class RepositorioClientes implements Observador {
                     " ->> Olá, venha conferir o novo " + acao.getModelo().toUpperCase(Locale.ROOT) +
                     " da " + acao.getMarca().toUpperCase(Locale.ROOT) + " que acabou de chegar");
         });
-
-//        for(int i = 0; i <= clientes.size(); i++) {
-//            System.out.println(i);
-//        }
-
-//        for (Cliente cliente : clientes) {
-//
-//            System.out.println("Enviando para: "+ cliente.getEmail() +" VENHA CONFERIR O NOVO "+acao.getModelo()+" DA "+ acao.getMarca()+" QUE CHEGOU");
-//
-//        }
+        System.out.println("\n\n");
 
 //        System.out.println(" Olá, venha conferir o novo "+acao.getModelo().toUpperCase(Locale.ROOT)+" da "+ acao.getMarca().toUpperCase(Locale.ROOT)+" que chegou ");
 
