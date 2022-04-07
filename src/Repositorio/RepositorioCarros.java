@@ -13,13 +13,14 @@ public class RepositorioCarros implements CRUDCarros {
 
     public RepositorioCarros() {
         carros = new ArrayList<>();
+
     }
 
 
     public void create(Carro T) {
         carros.add(T);
 
-        System.out.println("Carro cadastrado com sucesso");
+
     }
 
     public void read(String marca, String modelo) {

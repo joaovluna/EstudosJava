@@ -90,6 +90,7 @@ public class Main {
                 cliente.setEmail(email);
 
                 repositorioClientes.create(cliente);
+                System.out.println("Cliente cadastrado com sucesso");
             }
 
             case 2 -> {
@@ -149,6 +150,7 @@ public class Main {
             default -> System.out.println("Digito inválido, porfavor tente novamente\n\n");
         }
     }
+
 
     private static void cadastroCarro(Scanner scan, RepositorioCarros fiat, RepositorioCarros ferrari, RepositorioClientes observador) {
         int comandoCarro = 0;
@@ -233,6 +235,7 @@ public class Main {
                 carro.setAnoLancamento(anoLancamento);
                 carro.setValor(valor);
                 fiat.create(carro);
+                System.out.println("Carro cadastrado com sucesso");
 
             }
             case 2 -> {
@@ -310,6 +313,7 @@ public class Main {
                 carro.setAnoLancamento(anoLancamento);
                 carro.setValor(valor);
                 ferrari.create(carro);
+                System.out.println("Carro cadastrado com sucesso");
 
             }
             case 2 -> {
@@ -398,27 +402,7 @@ public class Main {
     }
 
     private static void preenchendoRepositorioClientes(RepositorioClientes repositorioClientes) {
-        Cliente c1 = new Cliente();
-        c1.setNome("Joao");
-        c1.setId("mtc0001");
-        c1.setIdade(23);
-        c1.setEmail("joao@email.com");
 
-        Cliente c2 = new Cliente();
-        c2.setNome("Luna");
-        c2.setId("mtc0002");
-        c2.setIdade(20);
-        c2.setEmail("luna@email.com");
-
-        Cliente c3 = new Cliente();
-        c3.setNome("victor");
-        c3.setId("mtc0003");
-        c3.setIdade(35);
-        c3.setEmail("victor@email.com");
-
-        repositorioClientes.create(c1);
-        repositorioClientes.create(c2);
-        repositorioClientes.create(c3);
     }
 
 }

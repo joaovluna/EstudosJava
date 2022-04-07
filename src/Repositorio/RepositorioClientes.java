@@ -15,11 +15,36 @@ public class RepositorioClientes implements Observador {
 
     public RepositorioClientes() {
         clientes = new ArrayList<>();
+        /*
+        * Verificar porque só esses que são criados aqui que recebem a notificacao e os que são criados
+        * dps em tempo de execucao não
+       */
+        Cliente c1 = new Cliente();
+        c1.setNome("Joao");
+        c1.setId("mtc0001");
+        c1.setIdade(23);
+        c1.setEmail("joao@email.com");
+
+        Cliente c2 = new Cliente();
+        c2.setNome("Maria");
+        c2.setId("mtc0002");
+        c2.setIdade(20);
+        c2.setEmail("maria@email.com");
+
+        Cliente c3 = new Cliente();
+        c3.setNome("Jose");
+        c3.setId("mtc0003");
+        c3.setIdade(35);
+        c3.setEmail("jose@email.com");
+
+        create(c1);
+        create(c2);
+        create(c3);
     }
 
     public void create(Cliente T) {
         clientes.add(T);
-        System.out.println("Cliente cadastrado com sucesso");
+
     }
 
     public void read(String id) {
@@ -96,6 +121,7 @@ public class RepositorioClientes implements Observador {
                     cliente.getEmail());
 
         }
+        System.out.println("TOTAL CLIENTES: " + clientes.size());
     }
 
     public Cliente searchCliente(String id) {
@@ -125,13 +151,23 @@ public class RepositorioClientes implements Observador {
 
         System.out.println("-------------------------------NOTIFICA--------------------------------------");
 
-        for (Cliente cliente : clientes) {
+        clientes.forEach(cliente -> { // pq nao vem os clientes que sao cadastrados na linha de comando? so os que estao no construtor que vem
+            System.out.println("Enviando para: "+ cliente.getEmail() +
+                    " ->> Olá, venha conferir o novo " + acao.getModelo().toUpperCase(Locale.ROOT) +
+                    " da " + acao.getMarca().toUpperCase(Locale.ROOT) + " que acabou de chegar");
+        });
 
-            System.out.println("Enviando para: "+ cliente.getEmail() +" VENHA CONFERIR O NOVO "+acao.getModelo()+" DA "+ acao.getMarca()+" QUE CHEGOU");
+//        for(int i = 0; i <= clientes.size(); i++) {
+//            System.out.println(i);
+//        }
 
-        }
+//        for (Cliente cliente : clientes) {
+//
+//            System.out.println("Enviando para: "+ cliente.getEmail() +" VENHA CONFERIR O NOVO "+acao.getModelo()+" DA "+ acao.getMarca()+" QUE CHEGOU");
+//
+//        }
 
-        System.out.println(" Olá, venha conferir o novo "+acao.getModelo().toUpperCase(Locale.ROOT)+" da "+ acao.getMarca().toUpperCase(Locale.ROOT)+" que chegou ");
+//        System.out.println(" Olá, venha conferir o novo "+acao.getModelo().toUpperCase(Locale.ROOT)+" da "+ acao.getMarca().toUpperCase(Locale.ROOT)+" que chegou ");
 
     }
 }
