@@ -16,8 +16,6 @@ public class Main {
 
         RepositorioClientes repositorioClientes = new RepositorioClientes(); //ja cria alguns clientes, observador certo
 
-        RepositorioClientes observador = new RepositorioClientes(); //observador errado
-
         RepositorioCarros fiat = new RepositorioCarros();
         RepositorioCarros ferrari = new RepositorioCarros();
 
@@ -33,7 +31,7 @@ public class Main {
 
             switch (inicio) {
 
-                case 1 -> cadastroCarro(scan, fiat, ferrari, observador, repositorioClientes);
+                case 1 -> cadastroCarro(scan, fiat, ferrari, repositorioClientes);
 
                 case 2 -> cadastroCliente(scan, repositorioClientes);
 
@@ -153,7 +151,7 @@ public class Main {
     }
 
 
-    private static void cadastroCarro(Scanner scan, RepositorioCarros fiat, RepositorioCarros ferrari, RepositorioClientes observador, RepositorioClientes repositorioCliente) {
+    private static void cadastroCarro(Scanner scan, RepositorioCarros fiat, RepositorioCarros ferrari, RepositorioClientes repositorioCliente) {
         int comandoCarro = 0;
 
         while (comandoCarro != 3) {
@@ -192,7 +190,7 @@ public class Main {
                 case 2 -> {
                     Carro carro = factory.getClass(comandoCarro);
 
-                    carro.addObservador(observador);
+                    carro.addObservador(repositorioCliente);
 
                     System.out.println(carro.getMarca());
                     System.out.println("------------------------------------");
